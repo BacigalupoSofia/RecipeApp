@@ -6,13 +6,15 @@
 
 :root {
   --color-primario: rgba(216, 92, 15, 0.986);
-  --color-secundario: rgb(102, 165, 67);
+  --color-secundario: rgba(101, 165, 67, 0.822);
 }
+
+/* HEADER */
 
 header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
   margin-bottom: 2rem;
   padding-top: 1rem;
   background-color: var(--color-secundario);
@@ -26,14 +28,16 @@ header {
 
 .logo {
   height: auto;
-  max-height: 120px;
+  max-height: 100px;
   padding-left: 3rem;
 }
 
 .header-text {
   display: flex;
   flex-direction: column;
+  justify-self: flex-start;
   text-align: center;
+  margin-right: 6rem;
 }
 
 .header-nav {
@@ -54,5 +58,74 @@ header {
   color: black;
 }
 
-nav.tabs {
+/* MAIN */
+
+.page {
+  padding: 2rem;
+  margin: 2rem;
+  min-height: 100vh;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 5px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.content-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: rgb(176, 172, 172);
+}
+
+.content-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  align-self: center;
+}
+
+.tab-content {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.recipe-details p {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* OCULTOS */
+
+#ingredients {
+  display: none;
+}
+
+#instructions {
+  display: none;
 }
