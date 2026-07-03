@@ -5,12 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Book</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rouge+Script&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header></header>
+    <header>
+      <div class="header-container">
+        <div class="header-img">
+          <img
+            src="/images/recipe_logo.png"
+            alt="Recipe Book Logo"
+            class="logo"
+          />
+        </div>
+        <div class="header-text">
+          <h1>Recipe Notebook</h1>
+          <p>Discover delicious recipes for every occasion</p>
+        </div>
+      </div>
 
-    <main></main>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Favorites</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="page">
+      <nav class="tabs" aria-label="Main tabs">
+        <button class="tab active" data-tab="recipe" type="button">
+          What I am cooking today ?
+        </button>
+        <button class="tab" data-tab="ingredients" type="button">
+          What I need ?
+        </button>
+        <button class="tab" data-tab="instructions" type="button">
+          How to do it ?
+        </button>
+      </nav>
+
+      <section class="content-card">
+        <div id="recipe" class="tab-content active">
+          <h2>Recipe</h2>
+          <p>Explicacion general de la receta</p>
+        </div>
+
+        <div id="ingredients" class="tab-content">
+          <h2>Ingredients</h2>
+          <p>Lista de ingredientes con botton para marcar los que ya tengo.</p>
+        </div>
+
+        <div id="instructions" class="tab-content">
+          <h2>Instructions</h2>
+          <p>Receta paso a paso.</p>
+        </div>
+      </section>
+    </main>
 
     <footer></footer>
 
