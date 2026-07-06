@@ -129,3 +129,65 @@ header {
 #instructions {
   display: none;
 }
+
+/* INDEX */
+
+.back-photo {
+  width: 100%;
+  height: auto;
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "welcome welcome"
+    "image buttons";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+}
+
+.welcome-text {
+  grid-area: welcome;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
+
+.back-photo-container {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button-container button {
+  padding: 1rem;
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-secundario);
+  color: white;
+  font-family: "Playfair Display", serif;
+}
