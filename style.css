@@ -16,14 +16,13 @@ header {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 2rem;
-  padding-top: 1rem;
-  background-color: var(--color-secundario);
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--color-secundario);
 }
 
 .logo {
@@ -133,11 +132,11 @@ header {
 /* INDEX */
 
 .back-photo {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
-main {
+.index-main {
   display: grid;
   grid-template-areas:
     "welcome welcome"
