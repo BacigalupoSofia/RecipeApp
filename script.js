@@ -2,17 +2,21 @@ console.log("Java script working");
 
 // INDEX HTML
 
-let exploreButton = document.querySelector(".explore.button");
-let addButton = document.querySelector(".add.button");
-let favoritesButton = document.querySelector(".favorites.button");
+let main_buttons = document.querySelector(".button-container");
 
-function navigate(route) {
-  window.location.href = route;
+if (main_buttons) {
+  let exploreButton = document.querySelector(".explore.button");
+  let addButton = document.querySelector(".add.button");
+  let favoritesButton = document.querySelector(".favorites.button");
+
+  function navigate(route) {
+    window.location.href = route;
+  }
+
+  exploreButton.addEventListener("click", () => navigate("recipe_list.html"));
+  addButton.addEventListener("click", () => navigate("add_recipe.html"));
+  favoritesButton.addEventListener("click", () => navigate("favorites.html"));
 }
-
-//exploreButton.addEventListener("click", () => navigate("recipe_list.html"));
-//addButton.addEventListener("click", () => navigate("add_recipe.html"));
-//favoritesButton.addEventListener("click", () => navigate("favorites.html"));
 
 // CREAR ADD Y FAVORITOS
 
