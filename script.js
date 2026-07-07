@@ -20,7 +20,7 @@ function navigate(route) {
 
 let recipes = [
   {
-    id: 1,
+    id: 0,
     name: "Carrot Cake",
     time: "20 min",
     difficulty: "Easy",
@@ -36,7 +36,7 @@ let recipes = [
     ],
   },
   {
-    id: 2,
+    id: 1,
     name: "Brownie Protein Bites",
     time: "10 min",
     difficulty: "Easy",
@@ -52,7 +52,7 @@ let recipes = [
     ],
   },
   {
-    id: 3,
+    id: 2,
     name: "Chocolate Chips Cookies",
     time: "15 min",
     difficulty: "Medium",
@@ -73,18 +73,20 @@ let recipes = [
 
 let container_card = document.getElementById("recipes-container");
 
-recipes.forEach((recipe) => {
-  container_card.innerHTML += `
-    <button class="recipe-card" data-id="${recipe.id}">
-      <article>
-        <img src="${recipe.img}" alt="${recipe.name}">
-        <h3>${recipe.name}</h3>
-        <p>${recipe.difficulty}</p>
-        <p>${recipe.time}</p>
-      </article>
-    </button>
-  `;
-});
+if (container_card) {
+  recipes.forEach((recipe) => {
+    container_card.innerHTML += `
+      <button class="recipe-card" data-id="${recipe.id}">
+        <article>
+          <img src="${recipe.img}" alt="${recipe.name}">
+          <h3>${recipe.name}</h3>
+          <p>${recipe.difficulty}</p>
+          <p>${recipe.time}</p>
+        </article>
+      </button>
+    `;
+  });
+}
 
 // ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
 
@@ -98,4 +100,17 @@ card_buttons.forEach((card) => {
   });
 });
 
-// AFTER CLICK, ID IS USED TO LOOK THE RECIPE IN THE OBJECT
+// AFTER CLICK, ID IS USED TO LOOK THE RECIPE IN THE OBJECT. OPEN recipe_cards file
+// URLSearchParams(window.location.search) is to search query parameter in URL
+
+let recipe_title = document.getElementById("recipe-name");
+
+// just executed when im in the specific recipe html file
+if (recipe_title) {
+  let params = new URLSearchParams(window.location.search);
+  let recipe_id = params.get("id");
+
+  let selected_recipe = recipes[recipe_id];
+  console.log("ID recibido:", recipe_id);
+  console.log("Receta encontrada:", recipes[recipe_id]);
+}
