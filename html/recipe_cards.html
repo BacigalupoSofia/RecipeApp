@@ -48,25 +48,26 @@
       </nav>
 
       <section class="content-card">
-        <h2 id="recipe-name" class="content-title">RECIPE NAME</h2>
-        <div id="recipe" class="tab-content active">
+        <h2 id="recipe-name" class="content-title"> </h2>
+        <div id="recipe" class="tab-content">
 
-          <div class="recipe-details">
+          <div id="details_and_image">
+          <div id="recipe-details">
             <p>Explicacion general de la receta seleccionada</p>
           </div>
-          <div class="recipe-image">
-            <img src=https://placehold.co/400x400 alt="Recipe Image" />
+          <div class="image_container">
+            <img id="recipe-image" src=https://placehold.co/400x400 alt="Recipe Image" />
           </div>
-        </div>
+        </div></div>
 
-        <div id="ingredients" class="tab-content">
+        <div id="ingredients" class="tab-content active">
           <h2>Ingredients</h2>
-          <p>Lista de ingredientes con botton para marcar los que ya tengo.</p>
+          <p> <ul id="ingredients-list"></ul> </p>
         </div>
 
         <div id="instructions" class="tab-content">
           <h2>Instructions</h2>
-          <p>Receta paso a paso.</p>
+          <p id="steps"> <ol> </ol></p>
         </div>
       </section>
     </main>

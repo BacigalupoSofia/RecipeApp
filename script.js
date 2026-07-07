@@ -113,4 +113,25 @@ if (recipe_title) {
   let selected_recipe = recipes[recipe_id];
   console.log("ID recibido:", recipe_id);
   console.log("Receta encontrada:", recipes[recipe_id]);
+  recipe_title.innerText = selected_recipe.name;
+
+  document.getElementById("recipe-details").innerText = selected_recipe.resume;
+  document.getElementById("recipe-image").src = selected_recipe.img;
+
+  let ingredients = document.getElementById("ingredients-list");
+  console.log(ingredients);
+
+  ingredients.innerHTML = selected_recipe.ingredients
+    .map((ingredient) => {
+      return `<li>${ingredient}</li>`;
+    })
+    .join("");
+  //Join () eliminates the coma between my elements
+
+  let steps = document.getElementById("steps");
+  steps.innerHTML = selected_recipe.instructions
+    .map((step) => {
+      return `<li>${step}</li>`;
+    })
+    .join("");
 }

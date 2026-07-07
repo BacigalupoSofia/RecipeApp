@@ -121,12 +121,14 @@ header {
 
 /* OCULTOS */
 
-#ingredients {
+#details_and_image {
   display: none;
 }
 
+#ingredients {
+}
+
 #instructions {
-  display: none;
 }
 
 /* INDEX */
