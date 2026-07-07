@@ -69,14 +69,14 @@ let recipes = [
   },
 ];
 
-// CREATING THE CARDS FOR RECIPES
+// CREATING THE CARDS FOR RECIPES FROM OBJECT, ID STORE IN BUTTON WHEN CARD IS CREATED (READABLE WITH DATASET)
 
 let container_card = document.getElementById("recipes-container");
 
 recipes.forEach((recipe) => {
   container_card.innerHTML += `
-    <button class="container button">
-      <article class="recipe-card">
+    <button class="recipe-card" data-id="${recipe.id}">
+      <article>
         <img src="${recipe.img}" alt="${recipe.name}">
         <h3>${recipe.name}</h3>
         <p>${recipe.difficulty}</p>
@@ -86,4 +86,16 @@ recipes.forEach((recipe) => {
   `;
 });
 
-console.log();
+// ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
+
+let card_buttons = document.querySelectorAll(".recipe-card");
+
+card_buttons.forEach((card) => {
+  card.addEventListener("click", function () {
+    let id = this.dataset.id;
+    console.log("BUTTON CLICKED", id);
+    window.location.href = `/html/recipe_cards.html?id=${id}`;
+  });
+});
+
+// AFTER CLICK, ID IS USED TO LOOK THE RECIPE IN THE OBJECT
