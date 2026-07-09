@@ -123,19 +123,22 @@ if (recipe_title) {
   document.getElementById("recipe-image").src = selected_recipe.img;
 
   let ingredients = document.getElementById("ingredients-list");
+  ingredientsList = selected_recipe.ingredients;
   console.log(ingredients);
 
-  ingredients.innerHTML = selected_recipe.ingredients
-    .map((ingredient) => {
-      return `<li>${ingredient}</li>`;
-    })
-    .join("");
-  //Join () eliminates the coma between my elements
+  for (let i = 0; i < ingredientsList.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = ingredientsList[i];
+    console.log(li);
+    ingredients.appendChild(li);
+  }
 
   let steps = document.getElementById("steps");
-  steps.innerHTML = selected_recipe.instructions
-    .map((step) => {
-      return `<li>${step}</li>`;
-    })
-    .join("");
+  stepByStep = selected_recipe.instructions;
+
+  for (let i = 0; i < stepByStep.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = stepByStep[i];
+    steps.appendChild(li);
+  }
 }
