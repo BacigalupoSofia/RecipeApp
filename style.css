@@ -121,13 +121,16 @@ header {
 
 /* OCULTOS */
 
-#details_and_image {
+.tab.active {
+  display: block;
 }
 
-#ingredients {
+.tab-content {
+  display: none;
 }
 
-#instructions {
+.tab-content.active {
+  display: block;
 }
 
 /* INDEX */

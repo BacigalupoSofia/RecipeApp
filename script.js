@@ -142,3 +142,25 @@ if (recipe_title) {
     steps.appendChild(li);
   }
 }
+
+// SHOWING AND HIDING TABS WITH CLICK
+const tabs = document.querySelectorAll(".tab");
+const tabContent = document.querySelectorAll(".tab-content");
+
+tabs.forEach(function (tab) {
+  tab.addEventListener("click", function () {
+    console.log("clicked");
+
+    tabs.forEach(function (currentTab) {
+      currentTab.classList.remove("active");
+    });
+    tabContent.forEach(function (tabContent) {
+      tabContent.classList.remove("active");
+    });
+    tab.classList.add("active");
+
+    const selectedTab = tab.dataset.tab;
+    const selectedContent = document.getElementById(selectedTab);
+    selectedContent.classList.add("active");
+  });
+});
