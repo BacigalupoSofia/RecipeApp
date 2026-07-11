@@ -57,6 +57,18 @@ header {
   color: black;
 }
 
+.favorite-recipes {
+  display: none;
+}
+
+.favorite-recipes.active {
+  display: grid;
+  min-width: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
 /* RECIPES PAGE */
 
 .pop-up-page {

@@ -72,6 +72,23 @@ let recipes = [
   },
 ];
 
+let my_favorites = [];
+
+function toggleFavorite(button, id) {
+  button.classList.toggle("active");
+  const selectedRecipe = recipes.find((recipe) => recipe.id == id);
+
+  if (button.classList.contains("active")) {
+    my_favorites.push(selectedRecipe);
+  } else {
+    my_favorites = my_favorites.filter((recipe) => recipe.id != id);
+  }
+
+  renderFavorites();
+
+  console.log("Favorites:", my_favorites);
+}
+
 // CREATING THE CARDS FOR RECIPES FROM OBJECT, ID STORE IN BUTTON WHEN CARD IS CREATED (READABLE WITH DATASET)
 
 let container_card = document.getElementById("recipes-container");
@@ -107,32 +124,35 @@ if (container_card) {
     let favorite_button = document.createElement("button");
     favorite_button.innerText = "♡";
     favorite_button.classList.add("favorite-btn");
+    favorite_button.dataset.id = recipe.id;
     card_button.appendChild(favorite_button);
 
-    favorite_button.addEventListener("click", () => {
-      console.log("Heart clicked");
+    favorite_button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleFavorite(favorite_button, card_button.dataset.id);
+    });
+
+    updateFavoriteButtons();
+
+    /*favorite_button.addEventListener("click", () => {
+       console.log("Heart clicked");
       favorite_button.classList.toggle("active");
       event.stopPropagation();
-    });
-  });
-}
+      const id = card_button.dataset.id;
 
-/*
-if (container_card) {
-  recipes.forEach((recipe) => {
-    container_card.innerHTML += `
-      <button class="recipe-card" data-id="${recipe.id}">
-        <article>
-          <img src="${recipe.img}" alt="${recipe.name}">
-          <h3>${recipe.name}</h3>
-          <p>${recipe.difficulty}</p>
-          <p>${recipe.time}</p>
-        </article>
-      </button>
-    `;
+      const selectedRecipe = recipes.find((recipe) => recipe.id == id);
+
+      if (favorite_button.classList.contains("active")) {
+        my_favorites.push(selectedRecipe);
+      } else {
+        my_favorites = my_favorites.filter((recipe) => recipe.id != id);
+      }
+      renderFavorites();
+
+      console.log("Favorites:", my_favorites);
+    }); */
   });
 }
-  */
 
 // POPUP - ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
 
@@ -216,3 +236,104 @@ tabs.forEach(function (tab) {
     selectedContent.classList.add("active");
   });
 });
+
+// FAV LIST y NAV BUTTONS
+
+let fav_nav = document.getElementById("fav-btn");
+let recipes_nav = document.getElementById("recipes-btn");
+let home_nav = document.getElementById("home-btn");
+
+let fav_page = document.querySelector(".favorite-recipes");
+
+home_nav.addEventListener("click", function () {
+  window.location.href = "index.html";
+});
+
+fav_nav.addEventListener("click", function () {
+  fav_page.classList.add("active");
+  recipes_grid.classList.add("hidden");
+  pop_up.classList.add("hidden");
+});
+
+recipes_nav.addEventListener("click", function () {
+  fav_page.classList.remove("active");
+  recipes_grid.classList.remove("hidden");
+  updateFavoriteButtons();
+});
+
+let favorites = document.querySelector(".favorite-recipes");
+
+function renderFavorites() {
+  favorites.innerHTML = "";
+
+  my_favorites.forEach((recipe) => {
+    const card_button = document.createElement("button");
+    card_button.classList.add("recipe-card");
+    card_button.dataset.id = recipe.id;
+    console.log(card_button.dataset.id);
+    favorites.appendChild(card_button);
+
+    let recipe_name = document.createElement("h3");
+    recipe_name.classList.add("recipe-name");
+    recipe_name.innerText = recipe.name;
+    card_button.appendChild(recipe_name);
+
+    let recipe_img = document.createElement("img");
+    recipe_img.classList.add("recipe-img");
+    recipe_img.src = recipe.img;
+    card_button.appendChild(recipe_img);
+
+    let recipe_difficulty = document.createElement("p");
+    recipe_difficulty.classList.add("recipe-difficulty");
+    recipe_difficulty.innerText = recipe.difficulty;
+    card_button.appendChild(recipe_difficulty);
+
+    let recipe_time = document.createElement("p");
+    recipe_time.classList.add("recipe-time");
+    recipe_time.innerText = recipe.time;
+    card_button.appendChild(recipe_time);
+
+    let favorite_button = document.createElement("button");
+    favorite_button.innerText = "♡";
+    favorite_button.classList.add("favorite-btn");
+    favorite_button.dataset.id = recipe.id;
+    favorite_button.classList.add("active");
+    card_button.appendChild(favorite_button);
+
+    favorite_button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleFavorite(favorite_button, card_button.dataset.id);
+      updateFavoriteButtons();
+    });
+
+    /* favorite_button.addEventListener("click", (event) => {
+      favorite_button.classList.toggle("active");
+      event.stopPropagation();
+      const id = card_button.dataset.id;
+
+      const selectedRecipe = recipes.find((recipe) => recipe.id == id);
+
+      if (!favorite_button.classList.contains("active")) {
+        my_favorites = my_favorites.filter((recipe) => recipe.id != id);
+      }
+
+      renderFavorites();
+
+      console.log("Favorites:", my_favorites);
+    });*/
+  });
+}
+
+function updateFavoriteButtons() {
+  const buttons = document.querySelectorAll(".favorite-btn");
+  buttons.forEach((button) => {
+    console.log(`heart button: ${button}`);
+    const id = button.dataset.id;
+    console.log(`heart button id: ${id}`);
+    if (my_favorites.some((recipe) => recipe.id == id)) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
+}
