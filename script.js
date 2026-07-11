@@ -92,58 +92,52 @@ if (container_card) {
   });
 }
 
-// ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
+// POPUP - ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
 
 let card_buttons = document.querySelectorAll(".recipe-card");
-
-card_buttons.forEach((card) => {
-  card.addEventListener("click", function () {
-    let id = this.dataset.id;
-    console.log("BUTTON CLICKED", id);
-    window.location.href = `/html/recipe_cards.html?id=${id}`;
-  });
-});
-
-// AFTER CLICK, ID IS USED TO LOOK THE RECIPE IN THE OBJECT. OPEN recipe_cards file
-// URLSearchParams(window.location.search) is to search query parameter in URL
-
 let recipe_title = document.getElementById("recipe-name");
 
-// just executed when im in the specific recipe html file
-if (recipe_title) {
-  let params = new URLSearchParams(window.location.search);
-  let recipe_id = params.get("id");
+if (card_buttons) {
+  card_buttons.forEach((card) => {
+    card.addEventListener("click", function () {
+      console.log(card);
+      let ID = card.dataset.id;
+      console.log(ID);
 
-  let selected_recipe = recipes[recipe_id];
-  console.log("ID recibido:", recipe_id);
-  console.log("Receta encontrada:", recipes[recipe_id]);
-  recipe_title.innerText = selected_recipe.name;
+      let selected_recipe = recipes[ID];
+      console.log("ID recibido:", ID);
+      console.log("Receta encontrada:", recipes[ID]);
+      recipe_title.innerText = selected_recipe.name;
 
-  document.getElementById("recipe-details").innerText = selected_recipe.resume;
-  document.getElementById("recipe-image").src = selected_recipe.img;
+      document.getElementById("recipe-details").innerText =
+        selected_recipe.resume;
+      document.getElementById("recipe-image").src = selected_recipe.img;
 
-  let ingredients = document.getElementById("ingredients-list");
-  ingredientsList = selected_recipe.ingredients;
-  console.log(ingredients);
+      let ingredients = document.getElementById("ingredients-list");
+      ingredientsList = selected_recipe.ingredients;
+      console.log(ingredients);
 
-  for (let i = 0; i < ingredientsList.length; i++) {
-    const li = document.createElement("li");
-    li.textContent = ingredientsList[i];
-    console.log(li);
-    ingredients.appendChild(li);
-  }
+      for (let i = 0; i < ingredientsList.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = ingredientsList[i];
+        console.log(li);
+        ingredients.appendChild(li);
+      }
 
-  let steps = document.getElementById("steps");
-  stepByStep = selected_recipe.instructions;
+      let steps = document.getElementById("steps");
+      stepByStep = selected_recipe.instructions;
 
-  for (let i = 0; i < stepByStep.length; i++) {
-    const li = document.createElement("li");
-    li.textContent = stepByStep[i];
-    steps.appendChild(li);
-  }
+      for (let i = 0; i < stepByStep.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = stepByStep[i];
+        steps.appendChild(li);
+      }
+    });
+  });
 }
 
 // SHOWING AND HIDING TABS WITH CLICK
+
 const tabs = document.querySelectorAll(".tab");
 const tabContent = document.querySelectorAll(".tab-content");
 

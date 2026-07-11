@@ -59,10 +59,18 @@ header {
 
 /* MAIN */
 
-.page {
-  padding: 2rem;
-  margin: 2rem;
-  min-height: 100vh;
+.pop-up-page {
+  position: relative;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: rgba(150, 151, 151, 0.653);
+  padding: 6px;
+  border: solid 1px black;
+  max-width: 70%;
+}
+
+.pop-up-page.hidden {
+  display: none;
 }
 
 .tabs {
@@ -73,8 +81,9 @@ header {
 
 .tab {
   flex: 1;
-  padding: 1rem;
-  background-color: var(--color-primario);
+  padding: 2rem;
+  margin: 1px;
+  background-color: #a29e9e;
   color: white;
   border: none;
   cursor: pointer;
@@ -123,6 +132,7 @@ header {
 
 .tab.active {
   display: block;
+  background-color: var(--color-primario);
 }
 
 .tab-content {

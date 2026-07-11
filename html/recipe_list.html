@@ -42,7 +42,45 @@
 
       <section class="recipes-grid" id="recipes-container"></section>
 
+ <section class="pop-up-page">
+      <nav class="tabs" aria-label="Main tabs">
+        <button class="tab active" data-tab="recipe" type="button">
+          What am I cooking today ?
+        </button>
+        <button class="tab" data-tab="ingredients" type="button">
+          What I need ?
+        </button>
+        <button class="tab" data-tab="instructions" type="button">
+          How to do it ?
+        </button>
+      </nav>
 
+      <section class="content-card">
+        <h2 id="recipe-name" class="content-title"> </h2>
+        <div id="recipe" class="tab-content active">
+
+          <div id="details_and_image">
+          <div id="recipe-details">
+            <p>Explicacion general de la receta seleccionada</p>
+          </div>
+          <div class="image_container">
+            <img id="recipe-image" src=https://placehold.co/400x400 alt="Recipe Image" />
+          </div>
+        </div></div>
+
+        <div id="ingredients" class="tab-content">
+          <h2>Ingredients</h2>
+          <p> <ul id="ingredients-list"></ul> </p>
+        </div>
+
+        <div id="instructions" class="tab-content">
+          <h2>Instructions</h2>
+          <p id="steps"> <ol> </ol></p>
+        </div>
+      </section>
+    </main>
+
+    </main>
     <footer>
       <p>&copy; 2024 Recipe Notebook. All rights reserved.</p>
     </footer>
