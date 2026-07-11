@@ -215,6 +215,10 @@ main h2 {
   padding: 2rem;
 }
 
+.recipes-grid.hidden {
+  display: none;
+}
+
 .recipe-card {
   background: white;
   border-radius: 12px;

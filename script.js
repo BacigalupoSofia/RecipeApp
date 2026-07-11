@@ -97,6 +97,9 @@ if (container_card) {
 let card_buttons = document.querySelectorAll(".recipe-card");
 let recipe_title = document.getElementById("recipe-name");
 
+let recipes_grid = document.querySelector(".recipes-grid");
+let pop_up = document.querySelector(".pop-up-page");
+
 if (card_buttons) {
   card_buttons.forEach((card) => {
     card.addEventListener("click", function () {
@@ -132,6 +135,19 @@ if (card_buttons) {
         li.textContent = stepByStep[i];
         steps.appendChild(li);
       }
+      recipes_grid.classList.add("hidden");
+      pop_up.classList.remove("hidden");
+
+      let return_button = document.createElement("button");
+      return_button.innerText = "Return";
+      pop_up.appendChild(return_button);
+
+      return_button.addEventListener("click", function () {
+        console.log("RETURN CLICKED");
+        recipes_grid.classList.remove("hidden");
+        pop_up.classList.add("hidden");
+        return_button.remove();
+      });
     });
   });
 }
