@@ -57,7 +57,7 @@ header {
   color: black;
 }
 
-/* MAIN */
+/* RECIPES PAGE */
 
 .pop-up-page {
   position: relative;
@@ -143,7 +143,7 @@ header {
   display: block;
 }
 
-/* INDEX */
+/* MENU PAGE */
 
 .back-photo {
   max-width: 100%;
@@ -193,6 +193,10 @@ header {
   font-size: 1.5rem;
 }
 
+.button-container button:hover {
+  font-size: 2.5rem;
+}
+
 /* RECIPE CARDS */
 
 main {
@@ -225,6 +229,12 @@ main h2 {
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .recipe-card img {
