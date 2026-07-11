@@ -17,8 +17,7 @@ if (main_buttons) {
   addButton.addEventListener("click", () => navigate("add_recipe.html"));
   favoritesButton.addEventListener("click", () => navigate("favorites.html"));
 }
-
-// CREAR ADD Y FAVORITOS
+//BUTTONS NO TENGO ADD NI FAVORITOS
 
 // RECIPE OBJECT
 
@@ -79,6 +78,48 @@ let container_card = document.getElementById("recipes-container");
 
 if (container_card) {
   recipes.forEach((recipe) => {
+    const card_button = document.createElement("button");
+    card_button.classList.add("recipe-card");
+    card_button.dataset.id = recipe.id;
+    console.log(card_button.dataset.id);
+    container_card.appendChild(card_button);
+
+    let recipe_name = document.createElement("h3");
+    recipe_name.classList.add("recipe-name");
+    recipe_name.innerText = recipe.name;
+    card_button.appendChild(recipe_name);
+
+    let recipe_img = document.createElement("img");
+    recipe_img.classList.add("recipe-img");
+    recipe_img.src = recipe.img;
+    card_button.appendChild(recipe_img);
+
+    let recipe_difficulty = document.createElement("p");
+    recipe_difficulty.classList.add("recipe-difficulty");
+    recipe_difficulty.innerText = recipe.difficulty;
+    card_button.appendChild(recipe_difficulty);
+
+    let recipe_time = document.createElement("p");
+    recipe_time.classList.add("recipe-time");
+    recipe_time.innerText = recipe.time;
+    card_button.appendChild(recipe_time);
+
+    let favorite_button = document.createElement("button");
+    favorite_button.innerText = "♡";
+    favorite_button.classList.add("favorite-btn");
+    card_button.appendChild(favorite_button);
+
+    favorite_button.addEventListener("click", () => {
+      console.log("Heart clicked");
+      favorite_button.classList.toggle("active");
+      event.stopPropagation();
+    });
+  });
+}
+
+/*
+if (container_card) {
+  recipes.forEach((recipe) => {
     container_card.innerHTML += `
       <button class="recipe-card" data-id="${recipe.id}">
         <article>
@@ -91,6 +132,7 @@ if (container_card) {
     `;
   });
 }
+  */
 
 // POPUP - ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
 
