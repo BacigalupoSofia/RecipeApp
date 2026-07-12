@@ -257,10 +257,14 @@ function showRecipe(recipe) {
     li.textContent = stepByStep[i];
     steps.appendChild(li);
   }
+
   recipes_grid.classList.add("hidden");
+  fav_page.classList.remove("active");
   pop_up.classList.remove("hidden");
 
   let return_button = document.createElement("button");
+  return_button.classList.add("return-button");
+  return_button.classList.add("active");
   return_button.innerText = "Return";
   pop_up.appendChild(return_button);
 
@@ -268,7 +272,7 @@ function showRecipe(recipe) {
     console.log("RETURN CLICKED");
     recipes_grid.classList.remove("hidden");
     pop_up.classList.add("hidden");
-    return_button.remove();
+    return_button.classList.remove("active");
   });
 }
 
@@ -311,6 +315,7 @@ fav_nav.addEventListener("click", function () {
   fav_page.classList.add("active");
   recipes_grid.classList.add("hidden");
   pop_up.classList.add("hidden");
+  renderFavorites();
 });
 
 recipes_nav.addEventListener("click", function () {
@@ -323,6 +328,18 @@ recipes_nav.addEventListener("click", function () {
 let favorites = document.querySelector(".favorite-recipes");
 
 function renderFavorites() {
+  favorites.innerHTML = "";
+
+  my_favorites.forEach((recipe) => {
+    const card = createCard(recipe);
+
+    favorites.appendChild(card);
+  });
+
+  updateFavoriteButtons();
+}
+
+/* function renderFavorites() {
   favorites.innerHTML = "";
 
   my_favorites.forEach((recipe) => {
@@ -379,9 +396,10 @@ function renderFavorites() {
       renderFavorites();
 
       console.log("Favorites:", my_favorites);
-    }); */
+    }); 
   });
 }
+*/
 
 function updateFavoriteButtons() {
   const buttons = document.querySelectorAll(".favorite-btn");
