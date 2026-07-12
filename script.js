@@ -343,6 +343,8 @@ function updateFavoriteButtons() {
 let list_page = document.querySelector(".recipe-list-page");
 let form = document.querySelector(".add-form");
 let close_button = document.querySelector(".close-btn");
+let add_recipe = document.querySelector("add-recipe-btn");
+let form_info = document.getElementById("recipe-form");
 
 let addBtn = document.createElement("button");
 addBtn.innerText = "Add New Recipe";
@@ -361,3 +363,19 @@ if (list_page) {
     addBtn.style.display = "block";
   });
 }
+
+// PROCESSING MY FORM AVOIDING default behaviour
+
+form_info.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const recipe = {
+    name: document.querySelector("#name").value,
+    time: document.querySelector("#time").value,
+    resume: document.querySelector("#resume").value,
+  };
+
+  console.log("form submited");
+  console.log(recipe);
+  form.classList.remove("active");
+});

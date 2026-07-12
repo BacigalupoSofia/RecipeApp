@@ -321,12 +321,22 @@ footer {
 
 .add-form form {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: rgba(150, 151, 151, 0.653);
   padding: 2rem;
   border-radius: 12px;
   width: 70%;
   margin: 20px auto;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+.add-form form legend {
+  font-size: 30px;
+  text-align: center;
+}
+
+.add-form form input {
+  gap: 1rem;
 }
 
 .add-form.active {
