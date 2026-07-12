@@ -447,13 +447,22 @@ form_info.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const recipe = {
+    id: recipes.length,
     name: document.querySelector("#name").value,
     time: document.querySelector("#time").value,
+    difficulty: document.querySelector('input[name="difficulty"]:checked')
+      ?.value,
+    img: "",
     resume: document.querySelector("#resume").value,
+    ingredients: [],
+    instructions: [],
   };
 
   console.log("form submited");
   console.log(recipe);
   form.classList.remove("active");
   addBtn.style.display = "block";
+
+  recipes.push(recipe);
+  renderRecipes();
 });
