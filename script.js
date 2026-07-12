@@ -337,3 +337,27 @@ function updateFavoriteButtons() {
     }
   });
 }
+
+// TO ADD YOUR OWN RECIPE
+
+let list_page = document.querySelector(".recipe-list-page");
+let form = document.querySelector(".add-form");
+let close_button = document.querySelector(".close-btn");
+
+let addBtn = document.createElement("button");
+addBtn.innerText = "Add New Recipe";
+addBtn.classList.add("add-btn");
+list_page.appendChild(addBtn);
+
+if (list_page) {
+  addBtn.addEventListener("click", function () {
+    console.log("add button clicked");
+    form.classList.add("active");
+    addBtn.style.display = "none";
+  });
+
+  close_button.addEventListener("click", function () {
+    form.classList.remove("active");
+    addBtn.style.display = "block";
+  });
+}
