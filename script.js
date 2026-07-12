@@ -89,13 +89,85 @@ function toggleFavorite(button, id) {
   console.log("Favorites:", my_favorites);
 }
 
-// CREATING THE CARDS FOR RECIPES FROM OBJECT, ID STORE IN BUTTON WHEN CARD IS CREATED (READABLE WITH DATASET)
+// CREATING THE CARDS FOR RECIPES FROM OBJECT, ID STORE IN Article WHEN CARD IS CREATED (READABLE WITH DATASET).
+// Use renderRecipe to update the recipe card list for retrieving the cards created by createCard and append them.
 
 let container_card = document.getElementById("recipes-container");
 
-if (container_card) {
+let card_buttons = document.querySelectorAll(".recipe-card");
+let recipe_title = document.getElementById("recipe-name");
+
+let recipes_grid = document.querySelector(".recipes-grid");
+let pop_up = document.querySelector(".pop-up-page");
+
+function createCard(recipe) {
+  const card = document.createElement("article");
+  card.classList.add("recipe-card");
+
+  card.dataset.id = recipe.id;
+
+  const recipe_name = document.createElement("h3");
+  recipe_name.classList.add("recipe-name");
+  recipe_name.innerText = recipe.name;
+
+  const recipe_img = document.createElement("img");
+  recipe_img.classList.add("recipe-img");
+  recipe_img.src = recipe.img;
+
+  const recipe_difficulty = document.createElement("p");
+  recipe_difficulty.classList.add("recipe-difficulty");
+  recipe_difficulty.innerText = recipe.difficulty;
+
+  const recipe_time = document.createElement("p");
+  recipe_time.classList.add("recipe-time");
+  recipe_time.innerText = recipe.time;
+
+  const favorite_button = document.createElement("button");
+  favorite_button.innerText = "♡";
+  favorite_button.classList.add("favorite-btn");
+  favorite_button.dataset.id = recipe.id;
+
+  favorite_button.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    toggleFavorite(favorite_button, recipe.id);
+  });
+
+  card.append(
+    recipe_name,
+    recipe_img,
+    recipe_difficulty,
+    recipe_time,
+    favorite_button,
+  );
+
+  card.addEventListener("click", () => {
+    console.log(`Recipe card clicked ${card.dataset.id}`);
+    showRecipe(recipe);
+  });
+
+  return card;
+}
+
+function renderRecipes() {
+  container_card.innerHTML = "";
+
   recipes.forEach((recipe) => {
-    const card_button = document.createElement("button");
+    const card = createCard(recipe);
+    container_card.appendChild(card);
+  });
+
+  updateFavoriteButtons();
+}
+
+if (container_card) {
+  renderRecipes();
+  /* recipes.forEach((recipe) => {
+    const card = createCard(recipe);
+    container_card.appendChild(card); */
+  updateFavoriteButtons();
+
+  /* const card_button = document.createElement("button");
     card_button.classList.add("recipe-card");
     card_button.dataset.id = recipe.id;
     console.log(card_button.dataset.id);
@@ -151,66 +223,52 @@ if (container_card) {
 
       console.log("Favorites:", my_favorites);
     }); */
-  });
 }
 
 // POPUP - ADDING CLICK EVENT, WHEN RECIPE IS SELECTED WILL GO TO THE SPECIFIC INFORMATION ABOUT IT.
 
-let card_buttons = document.querySelectorAll(".recipe-card");
+/* let card_buttons = document.querySelectorAll(".recipe-card");
 let recipe_title = document.getElementById("recipe-name");
 
 let recipes_grid = document.querySelector(".recipes-grid");
-let pop_up = document.querySelector(".pop-up-page");
+let pop_up = document.querySelector(".pop-up-page"); */
 
-if (card_buttons) {
-  card_buttons.forEach((card) => {
-    card.addEventListener("click", function () {
-      console.log(card);
-      let ID = card.dataset.id;
-      console.log(ID);
+function showRecipe(recipe) {
+  recipe_title.innerText = recipe.name;
+  document.getElementById("recipe-details").innerText = recipe.resume;
+  document.getElementById("recipe-image").src = recipe.img;
 
-      let selected_recipe = recipes[ID];
-      console.log("ID recibido:", ID);
-      console.log("Receta encontrada:", recipes[ID]);
-      recipe_title.innerText = selected_recipe.name;
+  let ingredients = document.getElementById("ingredients-list");
+  ingredientsList = recipe.ingredients;
+  console.log(ingredients);
 
-      document.getElementById("recipe-details").innerText =
-        selected_recipe.resume;
-      document.getElementById("recipe-image").src = selected_recipe.img;
+  for (let i = 0; i < ingredientsList.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = ingredientsList[i];
+    console.log(li);
+    ingredients.appendChild(li);
+  }
 
-      let ingredients = document.getElementById("ingredients-list");
-      ingredientsList = selected_recipe.ingredients;
-      console.log(ingredients);
+  let steps = document.getElementById("steps");
+  stepByStep = recipe.instructions;
 
-      for (let i = 0; i < ingredientsList.length; i++) {
-        const li = document.createElement("li");
-        li.textContent = ingredientsList[i];
-        console.log(li);
-        ingredients.appendChild(li);
-      }
+  for (let i = 0; i < stepByStep.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = stepByStep[i];
+    steps.appendChild(li);
+  }
+  recipes_grid.classList.add("hidden");
+  pop_up.classList.remove("hidden");
 
-      let steps = document.getElementById("steps");
-      stepByStep = selected_recipe.instructions;
+  let return_button = document.createElement("button");
+  return_button.innerText = "Return";
+  pop_up.appendChild(return_button);
 
-      for (let i = 0; i < stepByStep.length; i++) {
-        const li = document.createElement("li");
-        li.textContent = stepByStep[i];
-        steps.appendChild(li);
-      }
-      recipes_grid.classList.add("hidden");
-      pop_up.classList.remove("hidden");
-
-      let return_button = document.createElement("button");
-      return_button.innerText = "Return";
-      pop_up.appendChild(return_button);
-
-      return_button.addEventListener("click", function () {
-        console.log("RETURN CLICKED");
-        recipes_grid.classList.remove("hidden");
-        pop_up.classList.add("hidden");
-        return_button.remove();
-      });
-    });
+  return_button.addEventListener("click", function () {
+    console.log("RETURN CLICKED");
+    recipes_grid.classList.remove("hidden");
+    pop_up.classList.add("hidden");
+    return_button.remove();
   });
 }
 
@@ -258,6 +316,7 @@ fav_nav.addEventListener("click", function () {
 recipes_nav.addEventListener("click", function () {
   fav_page.classList.remove("active");
   recipes_grid.classList.remove("hidden");
+  pop_up.classList.add("hidden");
   updateFavoriteButtons();
 });
 
@@ -320,7 +379,7 @@ function renderFavorites() {
       renderFavorites();
 
       console.log("Favorites:", my_favorites);
-    });*/
+    }); */
   });
 }
 
@@ -378,4 +437,5 @@ form_info.addEventListener("submit", (event) => {
   console.log("form submited");
   console.log(recipe);
   form.classList.remove("active");
+  addBtn.style.display = "block";
 });
