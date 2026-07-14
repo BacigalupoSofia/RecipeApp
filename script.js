@@ -466,3 +466,39 @@ form_info.addEventListener("submit", (event) => {
   recipes.push(recipe);
   renderRecipes();
 });
+
+// searching bar
+
+let search_form = document.querySelector(".search-form");
+let search_input = document.querySelector(".search-input");
+let search_button = document.querySelector(".search-button");
+
+function searching() {
+  let user_search = search_input.value.trim().toLowerCase();
+  if (search_input.value.trim() === "") {
+    alert("Write the name of the recipe to search");
+    return null;
+  }
+  search_input.value = "";
+  return user_search;
+}
+
+function comparing() {
+  const user_search = searching();
+  if (!user_search) return;
+
+  recipe_cards = document.querySelectorAll(".recipe-card");
+  recipe_cards.forEach((card) => {
+    const recipe_name = card
+      .querySelector(".recipe-name")
+      .textContent.toLowerCase();
+    !recipe_name.includes(user_search)
+      ? card.classList.add("hidden")
+      : card.classList.remove("hidden");
+  });
+}
+
+search_form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  comparing();
+});

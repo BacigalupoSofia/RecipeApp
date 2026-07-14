@@ -253,9 +253,14 @@ main h2 {
   transition: transform 0.3s ease-in-out;
 }
 
+.recipe-card.hidden {
+  display: none;
+}
+
 .recipe-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-secundario);
 }
 
 .recipe-card img {
@@ -363,4 +368,32 @@ footer {
   background: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* SEARCHING BAR */
+
+.search-form {
+  align-self: center;
+}
+
+.search-form.hidden {
+  display: none;
+}
+
+.search-input {
+  border-radius: 1rem;
+  padding: 0.8rem;
+  margin: 1rem;
+  background-color: #fff6f6;
+  border-color: var(--color-primario);
+}
+
+.search-button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.search-button:hover,
+.search-button:focus {
+  background-color: var(--color-secundario);
 }
