@@ -373,11 +373,17 @@ footer {
 /* SEARCHING BAR */
 
 .search-form {
+  display: flex;
+  flex-direction: column;
   align-self: center;
 }
 
 .search-form.hidden {
   display: none;
+}
+
+.input-button-form {
+  align-self: center;
 }
 
 .search-input {

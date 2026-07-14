@@ -261,6 +261,7 @@ function showRecipe(recipe) {
   recipes_grid.classList.add("hidden");
   fav_page.classList.remove("active");
   pop_up.classList.remove("hidden");
+  search_form.classList.add("hidden");
 
   let return_button = document.createElement("button");
   return_button.classList.add("return-button");
@@ -273,6 +274,8 @@ function showRecipe(recipe) {
     recipes_grid.classList.remove("hidden");
     pop_up.classList.add("hidden");
     return_button.classList.remove("active");
+    search_form.classList.remove("hidden");
+    resetSearch();
   });
 }
 
@@ -316,6 +319,7 @@ fav_nav.addEventListener("click", function () {
   recipes_grid.classList.add("hidden");
   pop_up.classList.add("hidden");
   renderFavorites();
+  resetSearch();
 });
 
 recipes_nav.addEventListener("click", function () {
@@ -323,6 +327,7 @@ recipes_nav.addEventListener("click", function () {
   recipes_grid.classList.remove("hidden");
   pop_up.classList.add("hidden");
   updateFavoriteButtons();
+  resetSearch();
 });
 
 let favorites = document.querySelector(".favorite-recipes");
@@ -477,7 +482,7 @@ function searching() {
   let user_search = search_input.value.trim().toLowerCase();
   if (search_input.value.trim() === "") {
     alert("Write the name of the recipe to search");
-    return null;
+    resetSearch();
   }
   search_input.value = "";
   return user_search;
@@ -496,6 +501,16 @@ function comparing() {
       ? card.classList.add("hidden")
       : card.classList.remove("hidden");
   });
+}
+
+function resetSearch() {
+  const recipe_cards = document.querySelectorAll(".recipe-card");
+
+  recipe_cards.forEach((card) => {
+    card.classList.remove("hidden");
+  });
+
+  search_input.value = "";
 }
 
 search_form.addEventListener("submit", (event) => {
