@@ -267,6 +267,7 @@ function showRecipe(recipe) {
   document.getElementById("recipe-image").src = recipe.img;
 
   let ingredients = document.getElementById("ingredients-list");
+  ingredients.innerHTML = "";
   ingredientsList = recipe.ingredients;
   console.log(ingredients);
 
