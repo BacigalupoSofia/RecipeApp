@@ -272,9 +272,25 @@ function showRecipe(recipe) {
 
   for (let i = 0; i < ingredientsList.length; i++) {
     const li = document.createElement("li");
-    li.textContent = ingredientsList[i];
-    console.log(li);
+
+    const check_box = document.createElement("input");
+    check_box.classList.add("check-box");
+    check_box.type = "checkbox";
+    check_box.id = `ingredient-${i}`;
+
+    const labels = document.createElement("label");
+    labels.setAttribute("for", check_box.id);
+    labels.textContent = ingredientsList[i];
+
+    li.appendChild(check_box);
+    li.appendChild(labels);
+
     ingredients.appendChild(li);
+
+    //const li = document.createElement("li");
+    // li.textContent = ingredientsList[i];
+    //console.log(li);
+    //ingredients.appendChild(li);
   }
 
   let steps = document.getElementById("steps");
