@@ -443,3 +443,28 @@ footer {
 .search-button:focus {
   background-color: var(--color-secundario);
 }
+
+/* checkbox */
+
+#ingredients-list {
+  list-style: none;
+}
+
+.list-of-ingredients {
+  display: flex;
+  gap: 5px;
+  margin: 10px;
+}
+
+.list-of-ingredients label {
+  font-size: 20px;
+}
+
+.check-box:checked {
+  accent-color: green;
+}
+
+.check-box:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}

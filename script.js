@@ -272,6 +272,7 @@ function showRecipe(recipe) {
 
   for (let i = 0; i < ingredientsList.length; i++) {
     const li = document.createElement("li");
+    li.classList.add("list-of-ingredients");
 
     const check_box = document.createElement("input");
     check_box.classList.add("check-box");
