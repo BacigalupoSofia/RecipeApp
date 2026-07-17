@@ -1,5 +1,33 @@
 console.log("Java script working");
 
+// NAV BUTTONS
+
+let fav_nav = document.getElementById("fav-btn");
+let recipes_nav = document.getElementById("recipes-btn");
+let home_nav = document.getElementById("home-btn");
+
+let fav_page = document.querySelector(".favorite-recipes");
+
+home_nav.addEventListener("click", function () {
+  window.location.href = "index.html";
+});
+
+fav_nav.addEventListener("click", function () {
+  fav_page.classList.add("active");
+  recipes_grid.classList.add("hidden");
+  pop_up.classList.add("hidden");
+  renderFavorites();
+  resetSearch();
+});
+
+recipes_nav.addEventListener("click", function () {
+  fav_page.classList.remove("active");
+  recipes_grid.classList.remove("hidden");
+  pop_up.classList.add("hidden");
+  updateFavoriteButtons();
+  resetSearch();
+});
+
 // INDEX HTML
 
 let main_buttons = document.querySelector(".button-container");
@@ -7,7 +35,7 @@ let main_buttons = document.querySelector(".button-container");
 if (main_buttons) {
   let exploreButton = document.querySelector(".explore.button");
   let addButton = document.querySelector(".add.button");
-  let favoritesButton = document.querySelector(".favorites.button");
+  let favoritesButton = document.querySelector(".fav-btn");
 
   function navigate(route) {
     window.location.href = route;
@@ -302,33 +330,7 @@ tabs.forEach(function (tab) {
   });
 });
 
-// FAV LIST y NAV BUTTONS
-
-let fav_nav = document.getElementById("fav-btn");
-let recipes_nav = document.getElementById("recipes-btn");
-let home_nav = document.getElementById("home-btn");
-
-let fav_page = document.querySelector(".favorite-recipes");
-
-home_nav.addEventListener("click", function () {
-  window.location.href = "index.html";
-});
-
-fav_nav.addEventListener("click", function () {
-  fav_page.classList.add("active");
-  recipes_grid.classList.add("hidden");
-  pop_up.classList.add("hidden");
-  renderFavorites();
-  resetSearch();
-});
-
-recipes_nav.addEventListener("click", function () {
-  fav_page.classList.remove("active");
-  recipes_grid.classList.remove("hidden");
-  pop_up.classList.add("hidden");
-  updateFavoriteButtons();
-  resetSearch();
-});
+// FAV LIST
 
 let favorites = document.querySelector(".favorite-recipes");
 
@@ -517,3 +519,5 @@ search_form.addEventListener("submit", (event) => {
   event.preventDefault();
   comparing();
 });
+
+// Ingredient list with checkbox
