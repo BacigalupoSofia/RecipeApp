@@ -296,6 +296,7 @@ function showRecipe(recipe) {
   }
 
   let steps = document.getElementById("steps");
+  steps.innerHTML = "";
   stepByStep = recipe.instructions;
 
   for (let i = 0; i < stepByStep.length; i++) {

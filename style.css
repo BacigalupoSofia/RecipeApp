@@ -78,7 +78,7 @@ header {
   background-color: rgba(150, 151, 151, 0.653);
   padding: 6px;
   border: solid 1px black;
-  max-width: 70%;
+  width: 70%;
 }
 
 .pop-up-page.hidden {
@@ -100,9 +100,9 @@ header {
   border: none;
   cursor: pointer;
   border-radius: 0 5px;
-  font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   font-weight: bold;
+  font-family: "Kelly Slab", sans-serif;
 }
 
 .content-card {
@@ -114,30 +114,51 @@ header {
 }
 
 .content-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
+  font-family: "League Script", cursive;
+  font-weight: 700;
+  font-size: 2.5rem;
   margin: 1rem 0;
   align-self: center;
 }
 
 .tab-content {
-  display: flex;
+  display: block;
   gap: 1rem;
-  justify-content: space-evenly;
 }
 
-.recipe-details {
+#details-and-image {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
 }
 
-.recipe-details p {
-  font-family: "Libre Baskerville", serif;
-  font-size: 1rem;
+#recipe-details {
+  flex: 1;
+  font-family: "Playpen Sans Deva", cursive;
   text-align: center;
+  margin: 0.5rem;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#recipe-image {
+  max-width: 85%;
+  justify-content: center;
+}
+
+#steps {
+  font-size: 1.5rem;
+  margin: 1rem;
+  list-style-type: decimal;
+  font-family: "Playpen Sans Deva", cursive;
+}
+
+#steps li {
+  margin: 1rem;
 }
 
 /* OCULTOS */
@@ -185,7 +206,7 @@ header {
 .welcome-text {
   grid-area: welcome;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: "League Script", cursive;
   font-size: 2rem;
 }
 
@@ -209,7 +230,7 @@ header {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  font-family: "Playfair Display", serif;
+  font-family: "Kelly Slab", sans-serif;
   font-size: 1.5rem;
   transition: font-size 0.3s ease-in-out;
 }
@@ -228,7 +249,8 @@ main {
 main h2 {
   display: block;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: "Kelly Slab", sans-serif;
+  font-weight: 400;
   font-size: 2rem;
 }
 
