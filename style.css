@@ -501,3 +501,45 @@ footer {
   text-decoration: line-through;
   color: gray;
 }
+
+@media (max-width: 426px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    padding-left: 0;
+    max-height: 80px;
+  }
+
+  .header-text {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .header-nav {
+    padding-right: 0;
+    align-self: center;
+  }
+
+  .header-nav ul {
+    padding: 0;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .index-main {
+    display: grid;
+    grid-template-areas:
+      "welcome"
+      "buttons";
+    grid-template-columns: 1fr;
+  }
+
+  .back-photo-container {
+    display: none;
+  }
+}
