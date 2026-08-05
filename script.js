@@ -45,7 +45,6 @@ if (main_buttons) {
   addButton.addEventListener("click", () => navigate("add_recipe.html"));
   favoritesButton.addEventListener("click", () => navigate("favorites.html"));
 }
-//BUTTONS NO TENGO ADD NI FAVORITOS
 
 // RECIPE OBJECT
 

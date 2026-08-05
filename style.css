@@ -37,6 +37,7 @@ header {
   justify-self: flex-start;
   text-align: center;
   margin-right: 6rem;
+  font-family: "Kelly Slab", sans-serif;
 }
 
 .header-nav {
@@ -67,6 +68,71 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
   padding: 2rem;
+}
+
+/* MENU PAGE */
+
+.back-photo {
+  max-width: 100%;
+  height: auto;
+}
+
+.index-main {
+  display: grid;
+  grid-template-areas:
+    "welcome welcome"
+    "image buttons";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+}
+
+.welcome-text {
+  grid-area: welcome;
+  text-align: center;
+}
+
+.welcome-text h2 {
+  font-family: "Kelly Slab", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.subt {
+  font-weight: 600;
+  font-family: "League Script", cursive;
+  font-size: 1.5rem;
+}
+
+.back-photo-container {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button-container button {
+  padding: 1rem;
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: "Kelly Slab", sans-serif;
+  font-size: 1.5rem;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.button-container button:hover {
+  font-size: 2.5rem;
 }
 
 /* RECIPES PAGE */
@@ -182,61 +248,6 @@ header {
 
 .return-button.active {
   display: block;
-}
-
-/* MENU PAGE */
-
-.back-photo {
-  max-width: 100%;
-  height: auto;
-}
-
-.index-main {
-  display: grid;
-  grid-template-areas:
-    "welcome welcome"
-    "image buttons";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
-  gap: 2rem;
-  align-items: center;
-  padding: 2rem;
-}
-
-.welcome-text {
-  grid-area: welcome;
-  text-align: center;
-  font-family: "League Script", cursive;
-  font-size: 2rem;
-}
-
-.back-photo-container {
-  grid-area: image;
-  display: flex;
-  justify-content: center;
-}
-
-.button-container {
-  grid-area: buttons;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.button-container button {
-  padding: 1rem;
-  background-color: var(--color-primario);
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-family: "Kelly Slab", sans-serif;
-  font-size: 1.5rem;
-  transition: font-size 0.3s ease-in-out;
-}
-
-.button-container button:hover {
-  font-size: 2.5rem;
 }
 
 /* RECIPE CARDS */
