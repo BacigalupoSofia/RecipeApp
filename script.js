@@ -43,7 +43,9 @@ if (main_buttons) {
 
   exploreButton.addEventListener("click", () => navigate("recipe_list.html"));
   addButton.addEventListener("click", () => navigate("add_recipe.html"));
-  favoritesButton.addEventListener("click", () => navigate("favorites.html"));
+  favoritesButton.addEventListener("click", () =>
+    navigate("recipe_list.html#"),
+  );
 }
 
 // RECIPE OBJECT
@@ -57,12 +59,31 @@ let recipes = [
     img: "../images/carrot_cake.png",
     resume:
       "A spiced, incredibly moist layer cake flavored with grated carrots and usually topped with rich cream cheese frosting. Historically originating from medieval European carrot puddings, it became a beloved modern dessert packed with warm spices like cinnamon, toasted nuts, and sometimes pineapple or coconut",
-    ingredients: ["Flour", "Flax seeds", "sugar"],
+    ingredients: [
+      "2 cups (250 g) all-purpose flour",
+      "2 teaspoons baking powder",
+      "1 teaspoon baking soda",
+      "1/2 teaspoon salt",
+      "2 teaspoons ground cinnamon",
+      "1/2 teaspoon ground nutmeg",
+      "3 large eggs",
+      "1 cup (200 g) granulated sugar",
+      "1/2 cup (100 g) brown sugar",
+      "1 cup (240 ml) vegetable oil",
+      "2 teaspoons vanilla extract",
+      "3 cups (330 g) grated carrots",
+      "1/2 cup (60 g) chopped walnuts or pecans (optional)",
+      "1/2 cup (75 g) raisins (optional)",
+    ],
     instructions: [
-      "Preheat oven",
-      "Mix dry ingredients",
-      "Combine wet ingredients",
-      "Bake and frost",
+      "Preheat the oven to 350°F (175°C) and grease two 8-inch round cake pans.",
+      "In a large bowl, whisk together the flour, baking powder, baking soda, salt, cinnamon, and nutmeg.",
+      "In another bowl, beat the eggs, granulated sugar, brown sugar, oil, and vanilla until smooth.",
+      "Gradually fold the dry ingredients into the wet ingredients until just combined.",
+      "Stir in the grated carrots, followed by the walnuts and raisins if using.",
+      "Divide the batter evenly between the prepared cake pans.",
+      "Bake for 30–35 minutes, or until a toothpick inserted into the center comes out clean.",
+      "Allow the cakes to cool completely before frosting with cream cheese frosting and serving.",
     ],
   },
   {
@@ -72,13 +93,28 @@ let recipes = [
     difficulty: "Easy",
     img: "../images/bolitas.png",
     resume:
-      "A spiced, incredibly moist layer cake flavored with grated carrots and usually topped with rich cream cheese frosting. Historically originating from medieval European carrot puddings, it became a beloved modern dessert packed with warm spices like cinnamon, toasted nuts, and sometimes pineapple or coconut",
-    ingredients: ["Flour", "Flax seeds", "sugar"],
+      "Rich, chocolatey, and irresistibly fudgy, these brownies have a crackly top with a soft, dense center. Every bite is packed with deep cocoa flavor and just the right amount of sweetness, making them perfect for sharing or enjoying with a glass of milk or a scoop of vanilla ice cream. A timeless recipe that's simple to make and always a crowd-pleaser.",
+    ingredients: [
+      "1/2 cup (115 g) unsalted butter, melted",
+      "1 cup (200 g) granulated sugar",
+      "2 large eggs",
+      "1 teaspoon vanilla extract",
+      "1/3 cup (40 g) unsweetened cocoa powder",
+      "1/2 cup (65 g) all-purpose flour",
+      "1/4 teaspoon salt",
+      "1/4 teaspoon baking powder",
+      "1/2 cup (85 g) chocolate chips (optional)",
+      "1/2 cup (60 g) chopped walnuts or pecans (optional)",
+    ],
     instructions: [
-      "Preheat oven",
-      "Mix dry ingredients",
-      "Combine wet ingredients",
-      "Bake and frost",
+      "Preheat the oven to 350°F (175°C) and grease or line an 8×8-inch baking pan with parchment paper.",
+      "Melt the butter and whisk it together with the sugar until well combined.",
+      "Add the eggs one at a time, then stir in the vanilla extract.",
+      "Sift in the cocoa powder, flour, salt, and baking powder, then mix until just combined.",
+      "Fold in the chocolate chips and chopped nuts, if using.",
+      "Pour the batter into the prepared baking pan and spread it evenly.",
+      "Bake for 20–25 minutes, or until a toothpick inserted near the center comes out with a few moist crumbs.",
+      "Allow the brownies to cool completely in the pan before slicing into squares and serving.",
     ],
   },
   {
@@ -88,16 +124,34 @@ let recipes = [
     difficulty: "Medium",
     img: "../images/cookies.png",
     resume:
-      "A spiced, incredibly moist layer cake flavored with grated carrots and usually topped with rich cream cheese frosting. Historically originating from medieval European carrot puddings, it became a beloved modern dessert packed with warm spices like cinnamon, toasted nuts, and sometimes pineapple or coconut",
-    ingredients: ["Flour", "Flax seeds", "sugar"],
+      "Soft in the center, lightly crisp around the edges, and filled with melty chocolate chips, these classic chocolate chip cookies are a timeless favorite. Easy to make and perfect for any occasion, they're delicious served warm from the oven with a glass of milk.",
+    ingredients: [
+      "2 1/4 cups (280 g) all-purpose flour",
+      "1 teaspoon baking soda",
+      "1/2 teaspoon salt",
+      "1 cup (225 g) unsalted butter, softened",
+      "3/4 cup (150 g) granulated sugar",
+      "3/4 cup (165 g) packed brown sugar",
+      "1 teaspoon vanilla extract",
+      "2 large eggs",
+      "2 cups (340 g) semi-sweet chocolate chips",
+      "1 cup (120 g) chopped walnuts or pecans (optional)",
+    ],
     instructions: [
-      "Preheat oven",
-      "Mix dry ingredients",
-      "Combine wet ingredients",
-      "Bake and frost",
+      "Preheat the oven to 375°F (190°C) and line baking sheets with parchment paper.",
+      "Whisk together the flour, baking soda, and salt in a medium bowl.",
+      "In a large bowl, cream the softened butter, granulated sugar, and brown sugar until light and fluffy.",
+      "Beat in the vanilla extract and eggs, one at a time, until fully incorporated.",
+      "Gradually mix the dry ingredients into the wet ingredients until just combined.",
+      "Fold in the chocolate chips and chopped nuts, if using.",
+      "Scoop tablespoon-sized portions of dough onto the prepared baking sheets, leaving space between each cookie.",
+      "Bake for 9–11 minutes, or until the edges are golden brown and the centers are just set.",
+      "Let the cookies cool on the baking sheet for 5 minutes before transferring them to a wire rack to cool completely.",
     ],
   },
 ];
+
+// FAVORITES add or remove from the list of favorites when clicking the heart button, and update the list of favorites in the favorite tab. If button is active will find it by id to add it or if not active will filter it by id to remove it from the list of favorites. Then will call renderFavorites to update the list of favorites in the favorite tab.
 
 let my_favorites = [];
 
