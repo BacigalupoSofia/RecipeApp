@@ -525,6 +525,16 @@ if (list_page) {
 form_info.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  const ingredientInput = document
+    .getElementById("ingredients-input")
+    .value.split("\n")
+    .map((item) => item.trim());
+
+  const instructionsInput = document
+    .getElementById("instructions-input")
+    .value.split("\n")
+    .map((item) => item.trim());
+
   const recipe = {
     id: recipes.length,
     name: document.querySelector("#name").value,
@@ -533,8 +543,8 @@ form_info.addEventListener("submit", (event) => {
       ?.value,
     img: "",
     resume: document.querySelector("#resume").value,
-    ingredients: [],
-    instructions: [],
+    ingredients: ingredientInput,
+    instructions: instructionsInput,
   };
 
   console.log("form submited");
