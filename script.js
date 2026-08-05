@@ -535,13 +535,18 @@ form_info.addEventListener("submit", (event) => {
     .value.split("\n")
     .map((item) => item.trim());
 
+  const imageInput = document.getElementById("img").files[0];
+  if (imageInput) {
+    console.log(`Image selected: ${imageInput.name}`);
+  }
+
   const recipe = {
     id: recipes.length,
     name: document.querySelector("#name").value,
     time: document.querySelector("#time").value,
     difficulty: document.querySelector('input[name="difficulty"]:checked')
       ?.value,
-    img: "",
+    img: imageInput ? URL.createObjectURL(imageInput) : "",
     resume: document.querySelector("#resume").value,
     ingredients: ingredientInput,
     instructions: instructionsInput,
