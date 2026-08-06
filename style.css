@@ -180,7 +180,7 @@ header {
 }
 
 .content-title {
-  font-family: "League Script", cursive;
+  font-family: "Kelly Slab", sans-serif;
   font-weight: 700;
   font-size: 2.5rem;
   margin: 1rem 0;
@@ -200,7 +200,6 @@ header {
 
 #recipe-details {
   flex: 1;
-  font-family: "Playpen Sans Deva", cursive;
   text-align: center;
   margin: 0.5rem;
 }
@@ -216,8 +215,10 @@ header {
   justify-content: center;
 }
 
-#steps {
-  font-size: 1.5rem;
+#steps,
+#ingredients-list,
+#recipe-details {
+  font-size: 1.2rem;
   margin: 1rem;
   list-style-type: decimal;
   font-family: "Playpen Sans Deva", cursive;
@@ -331,7 +332,8 @@ footer {
   font-size: 50px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-  color: rgb(113, 113, 113);
+  color: rgb(211, 201, 201);
+  -webkit-text-stroke: 2px rgba(43, 38, 38, 0.973);
 }
 
 .favorite-btn:hover {
