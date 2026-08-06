@@ -328,9 +328,10 @@ footer {
 .favorite-btn {
   background: none;
   border: none;
-  font-size: 32px;
+  font-size: 50px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  color: rgb(113, 113, 113);
 }
 
 .favorite-btn:hover {
@@ -385,8 +386,11 @@ footer {
 
 .add-form legend {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--color-primario);
+  -webkit-text-stroke: 0.3px rgba(231, 217, 217, 0.973);
+  font-weight: 700;
 }
 
 .add-form form label {

@@ -204,7 +204,7 @@ function createCard(recipe) {
   recipe_time.innerText = recipe.time;
 
   const favorite_button = document.createElement("button");
-  favorite_button.innerText = "♡";
+  favorite_button.innerText = "♥";
   favorite_button.classList.add("favorite-btn");
   favorite_button.dataset.id = recipe.id;
 
