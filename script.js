@@ -13,6 +13,7 @@ home_nav.addEventListener("click", function () {
 });
 
 fav_nav.addEventListener("click", function () {
+  event.preventDefault();
   fav_page.classList.add("active");
   recipes_grid.classList.add("hidden");
   pop_up.classList.add("hidden");
@@ -21,6 +22,7 @@ fav_nav.addEventListener("click", function () {
 });
 
 recipes_nav.addEventListener("click", function () {
+  event.preventDefault();
   fav_page.classList.remove("active");
   recipes_grid.classList.remove("hidden");
   pop_up.classList.add("hidden");
@@ -156,18 +158,55 @@ let recipes = [
 let my_favorites = [];
 
 function toggleFavorite(button, id) {
-  button.classList.toggle("active");
   const selectedRecipe = recipes.find((recipe) => recipe.id == id);
 
   if (button.classList.contains("active")) {
-    my_favorites.push(selectedRecipe);
-  } else {
+    button.classList.remove("active");
     my_favorites = my_favorites.filter((recipe) => recipe.id != id);
+  } else {
+    button.classList.add("active");
+    my_favorites.push(selectedRecipe);
   }
 
   renderFavorites();
 
   console.log("Favorites:", my_favorites);
+}
+
+// FAV LIST
+
+let favorites = document.querySelector(".favorite-recipes");
+
+function renderFavorites() {
+  favorites.innerHTML = "";
+
+  if (my_favorites.length === 0) {
+    const message = document.createElement("p");
+    message.textContent = "You haven't added any favorite recipes yet.";
+    favorites.appendChild(message);
+    return;
+  }
+
+  my_favorites.forEach((recipe) => {
+    const card = createCard(recipe);
+    favorites.appendChild(card);
+  });
+
+  updateFavoriteButtons();
+}
+
+function updateFavoriteButtons() {
+  const buttons = document.querySelectorAll(".favorite-btn");
+  buttons.forEach((button) => {
+    console.log(`heart button: ${button}`);
+    const id = button.dataset.id;
+    console.log(`heart button id: ${id}`);
+    if (my_favorites.some((recipe) => recipe.id == id)) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
 }
 
 // CREATING THE CARDS FOR RECIPES FROM OBJECT, ID STORE IN Article WHEN CARD IS CREATED (READABLE WITH DATASET).
@@ -330,36 +369,6 @@ tabs.forEach(function (tab) {
     selectedContent.classList.add("active");
   });
 });
-
-// FAV LIST
-
-let favorites = document.querySelector(".favorite-recipes");
-
-function renderFavorites() {
-  favorites.innerHTML = "";
-
-  my_favorites.forEach((recipe) => {
-    const card = createCard(recipe);
-
-    favorites.appendChild(card);
-  });
-
-  updateFavoriteButtons();
-}
-
-function updateFavoriteButtons() {
-  const buttons = document.querySelectorAll(".favorite-btn");
-  buttons.forEach((button) => {
-    console.log(`heart button: ${button}`);
-    const id = button.dataset.id;
-    console.log(`heart button id: ${id}`);
-    if (my_favorites.some((recipe) => recipe.id == id)) {
-      button.classList.add("active");
-    } else {
-      button.classList.remove("active");
-    }
-  });
-}
 
 // TO ADD YOUR OWN RECIPE
 
