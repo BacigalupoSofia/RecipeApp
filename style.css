@@ -220,12 +220,12 @@ header {
 #recipe-details {
   font-size: 1.2rem;
   margin: 1rem;
-  list-style-type: decimal;
   font-family: "Playpen Sans Deva", cursive;
 }
 
 #steps li {
   margin: 1rem;
+  list-style-type: decimal;
 }
 
 /* OCULTOS */
