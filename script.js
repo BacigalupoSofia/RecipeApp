@@ -1,5 +1,3 @@
-console.log("Java script working");
-
 // NAV BUTTONS
 
 let fav_nav = document.getElementById("fav-btn");
@@ -169,8 +167,6 @@ function toggleFavorite(button, id) {
   }
 
   renderFavorites();
-
-  console.log("Favorites:", my_favorites);
 }
 
 // FAV LIST
@@ -198,9 +194,9 @@ function renderFavorites() {
 function updateFavoriteButtons() {
   const buttons = document.querySelectorAll(".favorite-btn");
   buttons.forEach((button) => {
-    console.log(`heart button: ${button}`);
+
     const id = button.dataset.id;
-    console.log(`heart button id: ${id}`);
+    
     if (my_favorites.some((recipe) => recipe.id == id)) {
       button.classList.add("active");
     } else {
@@ -262,7 +258,6 @@ function createCard(recipe) {
   );
 
   card.addEventListener("click", () => {
-    console.log(`Recipe card clicked ${card.dataset.id}`);
     showRecipe(recipe);
   });
 
@@ -295,7 +290,6 @@ function showRecipe(recipe) {
   let ingredients = document.getElementById("ingredients-list");
   ingredients.innerHTML = "";
   ingredientsList = recipe.ingredients;
-  console.log(ingredients);
 
   for (let i = 0; i < ingredientsList.length; i++) {
     const li = document.createElement("li");
@@ -385,7 +379,6 @@ list_page.appendChild(addBtn);
 
 if (list_page) {
   addBtn.addEventListener("click", function () {
-    console.log("add button clicked");
     form.classList.add("active");
     addBtn.style.display = "none";
   });
