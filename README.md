@@ -92,8 +92,10 @@ The form is handled with JavaScript and the default form submission is prevented
 ```
 RecipeApp/
 │
+├── index.html
+│
 ├── html/
-│   ├── index.html
+│
 │   └── recipe_list.html
 │
 ├── images/
