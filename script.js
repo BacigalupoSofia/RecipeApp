@@ -41,11 +41,17 @@ if (main_buttons) {
     window.location.href = route;
   }
 
-  exploreButton.addEventListener("click", () => navigate("recipe_list.html"));
-  addButton.addEventListener("click", () => navigate("recipe_list.html"));
-  favoritesButton.addEventListener("click", () =>
-    navigate("recipe_list.html"),
-  );
+  exploreButton.addEventListener("click", () => {
+    navigate("html/recipe_list.html");
+  });
+
+  addButton.addEventListener("click", () => {
+    navigate("html/recipe_list.html");
+  });
+
+  favoritesButton.addEventListener("click", () => {
+    navigate("html/recipe_list.html");
+  });
 }
 
 // RECIPE OBJECT
@@ -194,9 +200,8 @@ function renderFavorites() {
 function updateFavoriteButtons() {
   const buttons = document.querySelectorAll(".favorite-btn");
   buttons.forEach((button) => {
-
     const id = button.dataset.id;
-    
+
     if (my_favorites.some((recipe) => recipe.id == id)) {
       button.classList.add("active");
     } else {
@@ -412,10 +417,9 @@ form_info.addEventListener("submit", (event) => {
   const name = document.querySelector("#name").value.trim();
   const time = document.querySelector("#time").value;
   const difficulty = document.querySelector(
-  'input[name="difficulty"]:checked'
-)?.value;
+    'input[name="difficulty"]:checked',
+  )?.value;
   const resume = document.querySelector("#resume").value.trim();
-
 
   const recipe = {
     id: recipes.length,
@@ -428,7 +432,6 @@ form_info.addEventListener("submit", (event) => {
     instructions: instructionsInput,
   };
 
- 
   form.classList.remove("active");
   addBtn.style.display = "block";
 
