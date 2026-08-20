@@ -42,9 +42,9 @@ if (main_buttons) {
   }
 
   exploreButton.addEventListener("click", () => navigate("recipe_list.html"));
-  addButton.addEventListener("click", () => navigate("add_recipe.html"));
+  addButton.addEventListener("click", () => navigate("recipe_list.html"));
   favoritesButton.addEventListener("click", () =>
-    navigate("recipe_list.html#"),
+    navigate("recipe_list.html"),
   );
 }
 
@@ -409,20 +409,26 @@ form_info.addEventListener("submit", (event) => {
     console.log(`Image selected: ${imageInput.name}`);
   }
 
+  const name = document.querySelector("#name").value.trim();
+  const time = document.querySelector("#time").value;
+  const difficulty = document.querySelector(
+  'input[name="difficulty"]:checked'
+)?.value;
+  const resume = document.querySelector("#resume").value.trim();
+
+
   const recipe = {
     id: recipes.length,
-    name: document.querySelector("#name").value,
-    time: document.querySelector("#time").value,
-    difficulty: document.querySelector('input[name="difficulty"]:checked')
-      ?.value,
+    name: name,
+    time: Number(time),
+    difficulty: difficulty,
     img: imageInput ? URL.createObjectURL(imageInput) : "",
-    resume: document.querySelector("#resume").value,
+    resume: resume,
     ingredients: ingredientInput,
     instructions: instructionsInput,
   };
 
-  console.log("form submited");
-  console.log(recipe);
+ 
   form.classList.remove("active");
   addBtn.style.display = "block";
 
