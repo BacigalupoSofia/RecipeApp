@@ -588,16 +588,8 @@ footer {
     display: none;
   }
 
-  .add-form form {
-    width: 90%;
-    margin: auto;
-  }
-
-  .add-form form label {
-    font-size: 15px;
-  }
-
-  .recipe-form {
-    padding: 1rem;
+  .recipes-grid,
+  .favorite-recipes.active {
+    min-width: 85vh;
   }
 }
