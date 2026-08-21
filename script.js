@@ -337,7 +337,6 @@ function showRecipe(recipe) {
   pop_up.appendChild(return_button);
 
   return_button.addEventListener("click", function () {
-    console.log("RETURN CLICKED");
     recipes_grid.classList.remove("hidden");
     pop_up.classList.add("hidden");
     return_button.classList.remove("active");
@@ -353,8 +352,6 @@ const tabContent = document.querySelectorAll(".tab-content");
 
 tabs.forEach(function (tab) {
   tab.addEventListener("click", function () {
-    console.log("clicked");
-
     tabs.forEach(function (currentTab) {
       currentTab.classList.remove("active");
     });
@@ -410,9 +407,6 @@ form_info.addEventListener("submit", (event) => {
     .map((item) => item.trim());
 
   const imageInput = document.getElementById("img").files[0];
-  if (imageInput) {
-    console.log(`Image selected: ${imageInput.name}`);
-  }
 
   const name = document.querySelector("#name").value.trim();
   const time = document.querySelector("#time").value;
