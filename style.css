@@ -17,6 +17,7 @@ header {
   justify-content: space-between;
   margin-bottom: 2rem;
   background-color: var(--color-secundario);
+  width: 100vw;
 }
 
 .header-top {
@@ -298,7 +299,7 @@ main h2 {
 
 .recipes-grid {
   display: grid;
-  min-width: 100vh;
+  min-width: 100vw;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
   padding: 2rem;
@@ -607,7 +608,7 @@ footer {
 
   .recipes-grid,
   .favorite-recipes.active {
-    min-width: 85vh;
+    max-width: 85vw;
   }
 
   .add-form form {
